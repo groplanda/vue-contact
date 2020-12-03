@@ -53,12 +53,15 @@ body {
   border: 0;
   outline: none;
   border-radius: 30px;
+  padding: 20px;
   &:focus, &:hover, &:active {
-    background: linear-gradient(75deg, #7a4eff, #f35160);
     box-shadow: 0px 4px 3px 0px rgba(#7a4eff, .25);
   }
   svg {
     margin-right: 10px;
+  }
+  &.yes {
+    background: linear-gradient(75deg,#72c775, #4a8a4c);
   }
 }
 .home {
@@ -113,6 +116,11 @@ body {
   &__item-remove {
     background: #7a4eff;
     color: #fff;
+  }
+  &__list-message {
+    text-align: center;
+    font-size: 20px;
+    margin: 20px 0;
   }
 }
 .form {
@@ -178,10 +186,34 @@ body {
   &__info-edit {
     max-width: 200px;
     font-size: 16px;
-    padding: 20px;
     &:focus, &:hover, &:active {
       background: linear-gradient(75deg, #7a4eff, #f35160);
       box-shadow: 0px 4px 3px 0px rgba(#7a4eff, .25);
     }
   }
+}
+.confirm {
+  &__buttons {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  &__title {
+    font-size: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  .button {
+    padding: 15px;
+    max-width: 200px;
+  }
+}
+.error__list {
+  display: flex;
+  flex-direction: column;
+}
+.error__item {
+  margin-bottom: 10px;
+  text-align: center;
+  color: #f35160;
 }
