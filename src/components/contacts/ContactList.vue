@@ -46,10 +46,12 @@ export default {
   },
   methods: {
     remove(id) {
+      // удаление по id
       this.removeId = id;
       this.$store.dispatch('setModal', true);
     },
     checkModal() {
+      // проверка ответа из modal
       if(this.answer) {
         this.$store.dispatch('removeUser', this.removeId)
         .then(() => {
