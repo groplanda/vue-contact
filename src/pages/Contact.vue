@@ -22,9 +22,6 @@ export default {
       edit: false,
     }
   },
-  computed: {
-
-  },
   methods: {
     onRender () {
       this.getUser(this.id);

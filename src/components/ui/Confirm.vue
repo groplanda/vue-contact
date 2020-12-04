@@ -12,6 +12,7 @@ export default {
   name: 'Confirm',
   methods: {
     onAnswer(val) {
+      // Вернем ответ в parent component и закроем modal
       this.$store.dispatch('setModal', false);
       this.$emit('answer', val);
     }
