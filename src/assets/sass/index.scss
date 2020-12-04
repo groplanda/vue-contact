@@ -172,6 +172,13 @@ body {
     box-shadow: 0px 0px 6px 3px rgba(#7a4eff, .25);
     border-radius: 10px;
   }
+  &__info-link {
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: 700;
+    font-size: 18px;
+    text-transform: uppercase;
+  }
   &__info-name {
     font-size: 25px;
     font-weight: 700;
