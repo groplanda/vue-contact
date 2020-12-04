@@ -1,35 +1,42 @@
 <template>
   <div class="contact">
-    <div class="contact__wrapper">
-      <Info />
+    <div v-if="!edit" class="contact__wrapper">
+      <Info :user="user" @showForm="edit = true" />
     </div>
-
-    <form class="form">
-      <div class="form__row">
-        <label class="form__label">Name</label>
-        <input type="text" class="form__input" placeholder="Your name" value="Aleksey" />
-      </div>
-      <div class="form__row">
-        <label class="form__label">Phone</label>
-        <input type="text" class="form__input" placeholder="Your phone" value="8(800)555-55-55" />
-      </div>
-      <div class="form__row">
-        <label class="form__label">Address</label>
-        <input type="text" class="form__input" placeholder="Your address" value="Volzsky" />
-      </div>
-      <div class="form__row">
-        <button type="submit" class="form__btn button">Save contact</button>
-      </div>
-    </form>
-
+    <Edit v-else :user="user" @hideForm="onRender" />
   </div>
 </template>
 <script>
-import Info from '../components/profile/Info.vue'
+import Info from '../components/profile/Info.vue';
+import Edit from '../components/forms/Edit.vue';
+
 export default {
   name: 'Contact',
-  components: {
-    Info
+    components: {
+    Info, Edit
+  },
+  data() {
+    return {
+      id: null,
+      user: null,
+      edit: false,
+    }
+  },
+  computed: {
+
+  },
+  methods: {
+    onRender () {
+      this.getUser(this.id);
+      this.edit = false;
+    },
+    getUser(id) {
+      this.user = this.$store.getters.getUserByID(Number(id));
+    }
+  },
+  created() {
+    this.id = this.$route.params.id;
+    this.getUser(this.id);
   }
 }
 </script>

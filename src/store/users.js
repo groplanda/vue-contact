@@ -27,6 +27,10 @@ const users = {
     },
     addUser(state, payload) {
       state.users.push(payload);
+    },
+    editUser(state, payload) {
+      const userIndex = state.users.findIndex(user => user.id === payload.id);
+      state.users[userIndex] = {...payload};
     }
   },
   actions: {
@@ -39,11 +43,17 @@ const users = {
         id: Date.now()
       }
       commit('addUser', user);
+    },
+    editUser({commit}, user) {
+      commit('editUser', user);
     }
   },
   getters: {
     getUsers (state) {
       return state.users
+    },
+    getUserByID(state) {
+      return (id) => state.users.find(user => user.id === id);
     }
   }
 }
